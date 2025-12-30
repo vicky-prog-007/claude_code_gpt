@@ -1,4 +1,4 @@
-# Claude Code with Azure GPT-5 - Complete Setup Package
+# Claude Code with Azure or OpenAI or Any Model - Complete Setup Package
 
 **Use Claude Code extension with Azure GPT-5 instead of Anthropic API**
 
