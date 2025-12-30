@@ -1,0 +1,127 @@
+================================================================================
+CLAUDE CODE WITH AZURE GPT-5 - QUICK START GUIDE
+================================================================================
+
+Use Claude Code VS Code extension with Azure GPT-5 instead of Anthropic API
+
+📦 PACKAGE CONTENTS:
+--------------------------------------------------------------------------------
+anthropic_to_azure_proxy.py   - Main proxy server (translates API formats)
+config.example.bat            - Configuration template (COPY TO config.bat)
+Start-ClaudeProxy.bat         - Easy startup script
+setup_environment.ps1         - Optional: Set permanent environment variables
+README.md                     - Full documentation and architecture details
+TROUBLESHOOTING.md            - Common issues and solutions
+QUICK_START.txt               - This file
+
+================================================================================
+⚡ 3-MINUTE SETUP:
+================================================================================
+
+STEP 1: Configure Azure Credentials
+------------------------------------
+1. Copy config.example.bat to config.bat
+2. Edit config.bat and fill in your Azure credentials:
+   - AZURE_OPENAI_ENDPOINT
+   - AZURE_OPENAI_API_KEY
+   - AZURE_OPENAI_DEPLOYMENT (usually "gpt-5")
+   - AZURE_OPENAI_API_VERSION (use "2025-01-01-preview")
+
+STEP 2: Install Dependencies
+-----------------------------
+Open Command Prompt and run:
+   pip install fastapi uvicorn httpx
+
+STEP 3: Configure VS Code
+--------------------------
+1. Open VS Code Settings (Ctrl+,)
+2. Search for "anthropic"
+3. Set these values:
+   - Anthropic: Base Url = http://127.0.0.1:5006
+   - Anthropic: Api Key = dummy
+
+STEP 4: Start the Proxy
+------------------------
+Double-click: Start-ClaudeProxy.bat
+
+You should see:
+   ========================================
+   Proxy: http://127.0.0.1:5006
+   Model: Azure GPT-5
+   Tools: ENABLED (Read, Write, Bash, etc.)
+   ========================================
+
+STEP 5: Use Claude Code!
+-------------------------
+Open Claude Code extension in VS Code and start coding!
+
+================================================================================
+✅ HOW TO VERIFY IT'S WORKING:
+================================================================================
+
+When you use Claude Code, the proxy window should show:
+   📨 Request received from Claude Code
+   🔧 Converting 17 tools (Read, Write, Bash, etc.)
+   ✅ Tools ready, sending to Azure GPT-5...
+   ✅ Response received from Azure GPT-5
+   🔧 GPT-5 wants to use 2 tools
+      → Tool: Read
+      → Tool: Write
+
+================================================================================
+🆘 COMMON ISSUES:
+================================================================================
+
+❌ "API Error: 404 DeploymentNotFound"
+   → Check deployment name in config.bat matches Azure Portal
+
+❌ "Connection refused"
+   → Ensure Start-ClaudeProxy.bat is running
+
+❌ "Unsupported parameter"
+   → Use gpt-5 or gpt-4o (NOT o1 - it doesn't support tools)
+
+❌ Proxy won't start
+   → Check Python is installed: python --version
+   → Install dependencies: pip install fastapi uvicorn httpx
+
+❌ Very slow responses
+   → Normal: 20-30% slower than direct Anthropic (acceptable trade-off)
+   → If 50%+ slower: Check network or Azure region
+
+For detailed troubleshooting, see TROUBLESHOOTING.md
+
+================================================================================
+💰 COST SAVINGS:
+================================================================================
+
+✅ Use Azure credits instead of paying Anthropic directly
+✅ Get full tool support (Read, Write, Bash, Grep, etc.)
+✅ Keep the excellent Claude Code extension UI
+✅ Use GPT-5's intelligence for coding tasks
+⚠️ Trade-off: ~20-30% slower than direct Anthropic
+
+================================================================================
+📚 MORE HELP:
+================================================================================
+
+- Full documentation: README.md
+- Troubleshooting guide: TROUBLESHOOTING.md
+- Proxy source code: anthropic_to_azure_proxy.py
+
+================================================================================
+🔐 SECURITY:
+================================================================================
+
+✅ Proxy runs on localhost only (not exposed to internet)
+✅ config.bat is excluded from git (.gitignore)
+⚠️ Never commit config.bat to version control
+⚠️ Never share your Azure API keys
+
+================================================================================
+🎉 THAT'S IT! YOU'RE READY TO GO!
+================================================================================
+
+Questions? Check TROUBLESHOOTING.md or review the code in anthropic_to_azure_proxy.py
+
+Happy coding with Claude Code + Azure GPT-5! 🚀
