@@ -1,4 +1,4 @@
-# Claude Code with Azure or OpenAI or Any Model - Complete Setup Package
+# How to run Claude Code Cli with GPT or Any LLM Model - Complete Setup Package
 
 **Use Claude Code extension with Azure GPT-5 instead of Anthropic API**
 
